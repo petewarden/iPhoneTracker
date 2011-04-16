@@ -7,6 +7,7 @@
 
 g_isMapCreated = false;
 g_csvString = null;
+g_deviceName = null;
 
 g_mapSettings = {
   "zoom_slider_power":5,
@@ -46,7 +47,7 @@ function onMapCreated() {
     openHeatMap.setSetting(key, value);
   }
   
-  openHeatMap.setColorGradient(["#eaf8b800","#eae40f16","#ea2d00dd"]);
+  openHeatMap.setColorGradient(["#eaf8b800","#eae40f16","#4f2d00dd"]);
   
   g_isMapCreated = true;
 
@@ -55,8 +56,9 @@ function onMapCreated() {
   }
 }
 
-function storeLocationData(csvString) {
+function storeLocationData(csvString, deviceName) {
   g_csvString = csvString;
+  g_deviceName = deviceName;
   if (g_isMapCreated) {
     loadLocationData();
   }
@@ -66,7 +68,7 @@ function loadLocationData() {
   var openHeatMap = $.getOpenHeatMap();
 
   openHeatMap.loadValuesFromCSVString(g_csvString);
-  $('#message').html('');
+  $('#message').text(g_deviceName);
 
   openHeatMap.setAnimationTime('All Time');
 }

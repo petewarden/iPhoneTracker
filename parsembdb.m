@@ -20,6 +20,10 @@ static NSDictionary* process_mbdx_file(NSString* filename);
   NSDictionary* mbdb = process_mbdb_file([path stringByAppendingPathComponent:@"Manifest.mbdb"]);
   NSDictionary* mbdx = process_mbdx_file([path stringByAppendingPathComponent:@"Manifest.mbdx"]);
 
+  if ((mbdb==nil)||(mbdx==nil)) {
+    return nil;
+  }
+
   for (NSNumber* offset in mbdb) {
     NSMutableDictionary* fileinfo = [mbdb objectForKey:offset];
     NSString* fileID = [mbdx objectForKey:offset];
@@ -83,6 +87,11 @@ NSDictionary* process_mbdb_file(NSString* filename) {
   size_t dataLength = [fileData length];
   uint8_t* data = (uint8_t*)[fileData bytes];
 
+  if (data==NULL) {
+    NSLog(@"No MBDB file found at '%@'", filename);
+    return nil;
+  }
+
   if ((data[0]!='m')||
     (data[1]!='b')||
     (data[2]!='d')||
@@ -133,6 +142,11 @@ NSDictionary* process_mbdx_file(NSString* filename) {
   NSData* fileData = [NSData dataWithContentsOfFile: filename];
   size_t dataLength = [fileData length];
   uint8_t* data = (uint8_t*)[fileData bytes];
+
+  if (data==NULL) {
+    NSLog(@"No MBDX file found at '%@'", filename);
+    return nil;
+  }
 
   if ((data[0]!='m')||
     (data[1]!='b')||
