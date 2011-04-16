@@ -1,5 +1,6 @@
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="http://static.openheatmap.com/css/mainstyle.css"/>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="http://static.openheatmap.com/scripts/jquery.openheatmap.js"></script>
 <script type='text/javascript'>
@@ -45,6 +46,8 @@ function onMapCreated() {
     openHeatMap.setSetting(key, value);
   }
   
+  openHeatMap.setColorGradient(["#eaf8b800","#eae40f16","#ea2d00dd"]);
+  
   g_isMapCreated = true;
 
   if (g_csvString!=null) {
@@ -63,10 +66,17 @@ function loadLocationData() {
   var openHeatMap = $.getOpenHeatMap();
 
   openHeatMap.loadValuesFromCSVString(g_csvString);
+  $('#message').html('');
+
+  openHeatMap.setAnimationTime('All Time');
 }
+
 </script>
 </head>
-<body style="margin:0px; padding:0px;">
+<body style="margin:0px; padding:0px; position:relative;">
 <div id="openheatmap_container" style="margin:0px; padding:0px;"></div>
+<div id="message" style="position:absolute; top:20px; left:0px; width: 1000px; text-align:center; font-size:200%;">
+Loading  <img src="http://static.openheatmap.com/images/loading.gif"/>
+</div>
 </body>
 </html>

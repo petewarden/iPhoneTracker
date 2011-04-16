@@ -16,6 +16,7 @@
 
 - (NSString*)getLocationDBPath;
 - (void)loadLocationDB;
+- (void) incrementBuckets:(NSMutableDictionary*)buckets forKey:(NSString*)key;
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet WebView *webView;

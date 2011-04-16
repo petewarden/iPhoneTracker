@@ -113,39 +113,56 @@
   if (!openWorked) {
     [self displayErrorAndQuit:[NSString stringWithFormat: @"Couldn't open location database file '%@'", locationDBPath]];
   }
-  
-  FMResultSet* results = [database executeQuery:@"SELECT * FROM CellLocation;"];
 
   const float precision = 100;
   NSMutableDictionary* buckets = [NSMutableDictionary dictionary];
 
-  while ([results next]) {
-    NSDictionary* row = [results resultDict];
+  NSString* queries[] = {@"SELECT * FROM CellLocation;", @"SELECT * FROM WifiLocation;"};
+  
+  for (int pass=0; pass<2; pass+=1) {
+  
+    FMResultSet* results = [database executeQuery:queries[pass]];
 
-    NSNumber* latitude_number = [row objectForKey:@"latitude"];
-    NSNumber* longitude_number = [row objectForKey:@"longitude"];
-    NSNumber* timestamp_number = [row objectForKey:@"timestamp"];
+    while ([results next]) {
+      NSDictionary* row = [results resultDict];
 
-    const float latitude = [latitude_number floatValue];
-    const float longitude = [longitude_number floatValue];
-    const float timestamp = [timestamp_number floatValue];
+      NSNumber* latitude_number = [row objectForKey:@"latitude"];
+      NSNumber* longitude_number = [row objectForKey:@"longitude"];
+      NSNumber* timestamp_number = [row objectForKey:@"timestamp"];
 
-    const float latitude_index = (floor(latitude*precision)/precision);  
-    const float longitude_index = (floor(longitude*precision)/precision);
-    NSString* key = [NSString stringWithFormat:@"%f,%f", latitude_index, longitude_index];
+      const float latitude = [latitude_number floatValue];
+      const float longitude = [longitude_number floatValue];
+      const float timestamp = [timestamp_number floatValue];
+      
+      // The timestamps seem to be based off 2001-01-01 strangely, so convert to the 
+      // standard Unix form using this offset
+      const float iOSToUnixOffset = (31*365.25*24*60*60);
+      const float unixTimestamp = (timestamp+iOSToUnixOffset);
+      
+      if ((latitude==0.0)&&(longitude==0.0)) {
+        continue;
+      }
+      
+      const float weekInSeconds = (7*24*60*60);
+      const float timeBucket = (floor(unixTimestamp/weekInSeconds)*weekInSeconds);
+      
+      NSDate* timeBucketDate = [NSDate dateWithTimeIntervalSince1970:timeBucket];
 
-    NSNumber* existingValue = [buckets objectForKey:key];
-    if (existingValue==nil) {
-      existingValue = [NSNumber numberWithInteger:0];
+      NSString* timeBucketString = [timeBucketDate descriptionWithCalendarFormat:@"%Y-%m-%d" timeZone:nil locale:nil];
+
+      const float latitude_index = (floor(latitude*precision)/precision);  
+      const float longitude_index = (floor(longitude*precision)/precision);
+      NSString* allKey = [NSString stringWithFormat:@"%f,%f,All Time", latitude_index, longitude_index];
+      NSString* timeKey = [NSString stringWithFormat:@"%f,%f,%@", latitude_index, longitude_index, timeBucketString];
+
+      [self incrementBuckets: buckets forKey: allKey];
+      [self incrementBuckets: buckets forKey: timeKey];
     }
-    NSNumber* newValue = [NSNumber numberWithInteger:([existingValue integerValue]+1)];
-
-    [buckets setObject: newValue forKey: key];
   }
   
   NSMutableArray* csvArray = [[[NSMutableArray alloc] init] autorelease];
   
-  [csvArray addObject: @"lat,lon,value\n"];
+  [csvArray addObject: @"lat,lon,value,time\n"];
 
   for (NSString* key in buckets) {
     NSNumber* count = [buckets objectForKey:key];
@@ -153,8 +170,9 @@
     NSArray* parts = [key componentsSeparatedByString:@","];
     NSString* latitude_string = [parts objectAtIndex:0];
     NSString* longitude_string = [parts objectAtIndex:1];
+    NSString* time_string = [parts objectAtIndex:2];
 
-    NSString* rowString = [NSString stringWithFormat:@"%@,%@,%@\n", latitude_string, longitude_string, count];
+    NSString* rowString = [NSString stringWithFormat:@"%@,%@,%@,%@\n", latitude_string, longitude_string, count, time_string];
     [csvArray addObject: rowString];
   }
   
@@ -165,6 +183,17 @@
 		NSLog(@"scriptResult='%@'", scriptResult);
   }
 
+}
+
+- (void) incrementBuckets:(NSMutableDictionary*)buckets forKey:(NSString*)key
+{
+    NSNumber* existingValue = [buckets objectForKey:key];
+    if (existingValue==nil) {
+      existingValue = [NSNumber numberWithInteger:0];
+    }
+    NSNumber* newValue = [NSNumber numberWithInteger:([existingValue integerValue]+1)];
+
+    [buckets setObject: newValue forKey: key];
 }
 
 @end
