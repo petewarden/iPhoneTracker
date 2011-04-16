@@ -53,7 +53,7 @@
   [self loadLocationDB];
 }
 
-- (NSString*)getLocationDBPath
+- (void)loadLocationDB
 {
   NSString* backupPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Application Support/MobileSync/Backup/"];
 
@@ -102,7 +102,7 @@
   return dbFilePath;
 }
 
-- (void)loadLocationDB
+- (BOOL)tryToLoadLocationDB:(NSString*) locationDBPath
 {
   [scriptObject setValue:self forKey:@"cocoaApp"];
     
@@ -112,7 +112,7 @@
   [database setLogsErrors: YES];
   BOOL openWorked = [database open];
   if (!openWorked) {
-    [self displayErrorAndQuit:[NSString stringWithFormat: @"Couldn't open location database file '%@'", locationDBPath]];
+    return NO;
   }
 
   const float precision = 100;
@@ -177,6 +177,10 @@
     NSString* rowString = [NSString stringWithFormat:@"%@,%@,%@,%@\n", latitude_string, longitude_string, count, time_string];
     [csvArray addObject: rowString];
   }
+
+  if ([csvArray length]<10) {
+    return NO;
+  }
   
   NSString* csvText = [csvArray componentsJoinedByString:@"\n"];
   
@@ -185,6 +189,7 @@
 		NSLog(@"scriptResult='%@'", scriptResult);
   }
 
+  return YES;
 }
 
 - (void) incrementBuckets:(NSMutableDictionary*)buckets forKey:(NSString*)key
