@@ -12,6 +12,7 @@
 @implementation iPhoneTrackingAppDelegate
 
 @synthesize window;
+@synthesize webView;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 }
