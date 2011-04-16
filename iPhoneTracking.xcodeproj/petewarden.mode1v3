@@ -336,7 +336,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>59F0A591135A0FF100098746</string>
+												<string>59F0A599135A10B400098746</string>
 												<key>history</key>
 												<array>
 													<string>59F0A34B13593DD300098746</string>
@@ -385,7 +385,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>59F0A592135A0FF100098746</string>
+												<string>59F0A59A135A10B400098746</string>
 												<key>history</key>
 												<array>
 													<string>59F0A34B13593DD300098746</string>
@@ -603,13 +603,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>59F0A593135A0FF100098746</string>
+		<string>59F0A59B135A10B400098746</string>
 		<string>59F0A36913593EA400098746</string>
 		<string>59F0A36A13593EA400098746</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>1C78EAAD065D492600B07095</string>
-		<string>/Users/petewarden/Projects/iPhoneTracking/iPhoneTracking.xcodeproj</string>
 		<string>59F0A2C413591AB500098746</string>
+		<string>1CD10A99069EF8BA00B06720</string>
+		<string>/Users/petewarden/Projects/iPhoneTracking/iPhoneTracking.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>40 59 1645 890 0 0 1920 1178 </string>

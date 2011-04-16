@@ -119,7 +119,8 @@
 
   NSString* queries[] = {@"SELECT * FROM CellLocation;", @"SELECT * FROM WifiLocation;"};
   
-  for (int pass=0; pass<2; pass+=1) {
+  // Temporarily disabled WiFi location pulling, since it's so dodgy. Change to 
+  for (int pass=0; pass<1; /*pass<2;*/ pass+=1) {
   
     FMResultSet* results = [database executeQuery:queries[pass]];
 
