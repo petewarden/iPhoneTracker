@@ -65,6 +65,10 @@
   for (NSString *childName in backupContents) {
     NSString* childPath = [backupPath stringByAppendingPathComponent:childName];
 
+    NSString *plistFile = [childPath   stringByAppendingPathComponent:@"Info.plist"];
+    NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:plistFile];
+    NSLog(@"file = %@, device = %@", plistFile, [plist objectForKey:@"Device Name"]);  
+      
     NSError* error;
     NSDictionary *childInfo = [fm attributesOfItemAtPath:childPath error:&error];
 
