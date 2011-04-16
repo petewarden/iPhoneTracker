@@ -1,0 +1,72 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.openheatmap.com/scripts/jquery.openheatmap.js"></script>
+<script type='text/javascript'>
+
+g_isMapCreated = false;
+g_csvString = null;
+
+g_mapSettings = {
+  "zoom_slider_power":5,
+  "zoomed_out_degrees_per_pixel":-180,
+  "zoomed_in_degrees_per_pixel":-0.01,
+  "is_gradient_value_range_set":"false",
+  "gradient_value_min":"1",
+  "gradient_value_max":"14",
+  "point_blob_radius":8.32,
+  "point_blob_value":1,
+  "show_map_tiles":true,
+  "map_server_root":"http:\/\/a.tile.openstreetmap.org\/",
+  "information_alpha":0.92,
+  "show_zoom":true,
+  "allow_pan":true,
+  "point_drawing_shape":"circle",
+  "circle_line_color":0,
+  "circle_line_alpha":1,
+  "circle_line_thickness":1,
+  "is_point_blob_radius_in_pixels":true,
+};
+
+$(document).ready(function() {
+
+  $('#openheatmap_container').insertOpenHeatMap({
+    width: 1000, 
+    height: 800,
+    prefer: 'canvas'
+  });
+});
+
+function onMapCreated() {
+  var openHeatMap = $.getOpenHeatMap();
+
+  for (var key in g_mapSettings) {
+    var value = g_mapSettings[key];
+    openHeatMap.setSetting(key, value);
+  }
+  
+  g_isMapCreated = true;
+
+  if (g_csvString!=null) {
+    loadLocationData();
+  }
+}
+
+function storeLocationData(csvString) {
+  g_csvString = csvString;
+  if (g_isMapCreated) {
+    loadLocationData();
+  }
+}
+
+function loadLocationData() {
+  var openHeatMap = $.getOpenHeatMap();
+
+  openHeatMap.loadValuesFromCSVString(g_csvString);
+}
+</script>
+</head>
+<body style="margin:0px; padding:0px;">
+<div id="openheatmap_container" style="margin:0px; padding:0px;"></div>
+</body>
+</html>
