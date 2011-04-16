@@ -1,7 +1,7 @@
-iPhone Tracking
-===============
+iPhone Tracker
+==============
 
-= iPhone Tracking
+= iPhone Tracker
 By http://twitter.com/aallan[Alasdair Allan] and http://twitter.com/petewarden[Pete Warden].
 
 This tool scans through the backup files that are automatically created when you sync your iPhone with your OS X computer, extracts any recorded location information, and displays it as an animatable map. 
