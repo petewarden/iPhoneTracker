@@ -53,70 +53,97 @@
   [self loadLocationDB];
 }
 
-- (NSString*)getLocationDBPath
+- (void)loadLocationDB
 {
   NSString* backupPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Application Support/MobileSync/Backup/"];
 
   NSFileManager *fm = [NSFileManager defaultManager];
   NSArray* backupContents = [[NSFileManager defaultManager] directoryContentsAtPath:backupPath];
-  NSString* newestFolder = nil;
-  NSDate* newestDate = nil;
 
+  NSMutableArray* fileInfoList = [NSMutableArray array];
   for (NSString *childName in backupContents) {
     NSString* childPath = [backupPath stringByAppendingPathComponent:childName];
 
     NSString *plistFile = [childPath   stringByAppendingPathComponent:@"Info.plist"];
-    NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:plistFile];
-    NSLog(@"file = %@, device = %@", plistFile, [plist objectForKey:@"Device Name"]);  
       
     NSError* error;
     NSDictionary *childInfo = [fm attributesOfItemAtPath:childPath error:&error];
 
     NSDate* modificationDate = [childInfo objectForKey:@"NSFileModificationDate"];    
 
-    if ((newestDate==nil)||([newestDate compare:modificationDate]==NSOrderedAscending)) {
-      newestDate = modificationDate;
-      newestFolder = childPath;
+    NSDictionary* fileInfo = [NSDictionary dictionaryWithObjectsAndKeys: 
+      childPath, @"fileName", 
+      modificationDate, @"modificationDate", 
+      plistFile, @"plistFile", 
+      nil];
+    [fileInfoList addObject: fileInfo];
+
+  }
+  
+  NSSortDescriptor* sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"modificationDate" ascending:NO] autorelease];
+  [fileInfoList sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+
+  BOOL loadWorked = NO;
+  for (NSDictionary* fileInfo in fileInfoList) {
+    @try {
+      NSString* newestFolder = [fileInfo objectForKey:@"fileName"];
+      NSString* plistFile = [fileInfo objectForKey:@"plistFile"];
+      
+      NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:plistFile];
+      if (plist==nil) {
+        NSLog(@"No plist file found at '%@'", plistFile);
+        continue;
+      }
+      NSString* deviceName = [plist objectForKey:@"Device Name"];
+      NSLog(@"file = %@, device = %@", plistFile, deviceName);  
+
+      NSDictionary* mbdb = [ParseMBDB getFileListForPath: newestFolder];
+      if (mbdb==nil) {
+        NSLog(@"No MBDB file found at '%@'", newestFolder);
+        continue;
+      }
+
+      NSString* wantedFileName = @"Library/Caches/locationd/consolidated.db";
+      NSString* dbFileName = nil;
+      for (NSNumber* offset in mbdb) {
+        NSDictionary* fileInfo = [mbdb objectForKey:offset];
+        NSString* fileName = [fileInfo objectForKey:@"filename"];
+        if ([wantedFileName compare:fileName]==NSOrderedSame) {
+          dbFileName = [fileInfo objectForKey:@"fileID"];
+        }
+      }
+
+      if (dbFileName==nil) {
+        NSLog(@"No consolidated.db file found in '%@'", newestFolder);
+        continue;
+      }
+
+      NSString* dbFilePath = [newestFolder stringByAppendingPathComponent:dbFileName];
+
+      loadWorked = [self tryToLoadLocationDB: dbFilePath forDevice:deviceName];
+      if (loadWorked) {
+        break;
+      }
     }
-
-  }
-
-  if (newestFolder==nil) {
-    [self displayErrorAndQuit:[NSString stringWithFormat: @"Couldn't find backup files at '%@'", backupPath]];  
-  }
-
-  NSDictionary* mbdb = [ParseMBDB getFileListForPath: newestFolder];
-
-  NSString* wantedFileName = @"Library/Caches/locationd/consolidated.db";
-  NSString* dbFileName = nil;
-  for (NSNumber* offset in mbdb) {
-    NSDictionary* fileInfo = [mbdb objectForKey:offset];
-    NSString* fileName = [fileInfo objectForKey:@"filename"];
-    if ([wantedFileName compare:fileName]==NSOrderedSame) {
-      dbFileName = [fileInfo objectForKey:@"fileID"];
+    @catch (NSException *exception) {
+      NSLog(@"Exception: %@", [exception reason]);
     }
   }
 
-  if (dbFileName==nil) {
-    [self displayErrorAndQuit: [NSString stringWithFormat: @"No consolidated.db file found in '%@'", newestFolder]];
+  if (!loadWorked) {
+    [self displayErrorAndQuit: [NSString stringWithFormat: @"Couldn't load consolidated.db file from '%@'", backupPath]];  
   }
-
-  NSString* dbFilePath = [newestFolder stringByAppendingPathComponent:dbFileName];
-
-  return dbFilePath;
 }
 
-- (void)loadLocationDB
+- (BOOL)tryToLoadLocationDB:(NSString*) locationDBPath forDevice:(NSString*) deviceName
 {
   [scriptObject setValue:self forKey:@"cocoaApp"];
     
-  NSString* locationDBPath = [self getLocationDBPath];
-  
   FMDatabase* database = [FMDatabase databaseWithPath: locationDBPath];
   [database setLogsErrors: YES];
   BOOL openWorked = [database open];
   if (!openWorked) {
-    [self displayErrorAndQuit:[NSString stringWithFormat: @"Couldn't open location database file '%@'", locationDBPath]];
+    return NO;
   }
 
   const float precision = 100;
@@ -182,14 +209,19 @@
     NSString* rowString = [NSString stringWithFormat:@"%@,%@,%@,%@\n", latitude_string, longitude_string, count, time_string];
     [csvArray addObject: rowString];
   }
+
+  if ([csvArray count]<10) {
+    return NO;
+  }
   
   NSString* csvText = [csvArray componentsJoinedByString:@"\n"];
   
-  id scriptResult = [scriptObject callWebScriptMethod: @"storeLocationData" withArguments:[NSArray arrayWithObject:csvText]];
+  id scriptResult = [scriptObject callWebScriptMethod: @"storeLocationData" withArguments:[NSArray arrayWithObjects:csvText,deviceName,nil]];
 	if(![scriptResult isMemberOfClass:[WebUndefined class]]) {
 		NSLog(@"scriptResult='%@'", scriptResult);
   }
 
+  return YES;
 }
 
 - (void) incrementBuckets:(NSMutableDictionary*)buckets forKey:(NSString*)key

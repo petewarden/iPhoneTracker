@@ -14,8 +14,8 @@
   WebScriptObject* scriptObject;
 }
 
-- (NSString*)getLocationDBPath;
 - (void)loadLocationDB;
+- (BOOL)tryToLoadLocationDB:(NSString*) locationDBPath forDevice:(NSString*) deviceName;
 - (void) incrementBuckets:(NSMutableDictionary*)buckets forKey:(NSString*)key;
 
 @property (assign) IBOutlet NSWindow *window;
