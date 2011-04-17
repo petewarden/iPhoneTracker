@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00F0B7F4135A97350017896A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 00F0B7F3135A97350017896A /* Icon.png */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.m */; };
 		59C0BD6D135A545200378314 /* readme.asciidoc in Resources */ = {isa = PBXBuildFile; fileRef = 59C0BD6C135A545200378314 /* readme.asciidoc */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00F0B7F3135A97350017896A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -130,6 +132,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				00F0B7F3135A97350017896A /* Icon.png */,
 				59F0A63B135A4FDB00098746 /* Credits.html */,
 				8D1107310486CEB800E47090 /* iPhoneTracking-Info.plist */,
 				59F0A3071359237800098746 /* index.html */,
@@ -219,6 +222,7 @@
 				59F0A3081359237800098746 /* index.html in Resources */,
 				59F0A63D135A4FDC00098746 /* Credits.html in Resources */,
 				59C0BD6D135A545200378314 /* readme.asciidoc in Resources */,
+				00F0B7F4135A97350017896A /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

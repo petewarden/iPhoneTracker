@@ -14,8 +14,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8D1107260486CEB800E47090"
-               BuildableName = "iPhoneTracking.app"
-               BlueprintName = "iPhoneTracking"
+               BuildableName = "iPhoneTracker.app"
+               BlueprintName = "iPhoneTracker"
                ReferencedContainer = "container:iPhoneTracking.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -41,8 +41,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "iPhoneTracking.app"
-            BlueprintName = "iPhoneTracking"
+            BuildableName = "iPhoneTracker.app"
+            BlueprintName = "iPhoneTracker"
             ReferencedContainer = "container:iPhoneTracking.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -60,8 +60,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "iPhoneTracking.app"
-            BlueprintName = "iPhoneTracking"
+            BuildableName = "iPhoneTracker.app"
+            BlueprintName = "iPhoneTracker"
             ReferencedContainer = "container:iPhoneTracking.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -235,4 +235,18 @@
     [buckets setObject: newValue forKey: key];
 }
 
+- (IBAction)openAboutPanel:(id)sender {
+    
+    NSImage *img = [NSImage imageNamed: @"Icon"];
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+               @"1.0", @"Version",
+               @"iPhone Tracking", @"ApplicationName",
+               img, @"ApplicationIcon",
+               @"Copyright 2011, Pete Warden and Alasdair Allan", @"Copyright",
+               @"iPhone Tracking v1.0", @"ApplicationVersion",
+               nil];
+    
+    [[NSApplication sharedApplication] orderFrontStandardAboutPanelWithOptions:options];
+    
+}
 @end
