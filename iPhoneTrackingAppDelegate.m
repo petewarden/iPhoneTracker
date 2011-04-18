@@ -176,12 +176,13 @@
         continue;
       }
       
-      const float weekInSeconds = (7*24*60*60);
-      const float timeBucket = (floor(unixTimestamp/weekInSeconds)*weekInSeconds);
+        // const float weekInSeconds = (7*24*60*60);
+      const float minInSeconds = 60;
+      const float timeBucket = (floor(unixTimestamp/minInSeconds)*minInSeconds);
       
       NSDate* timeBucketDate = [NSDate dateWithTimeIntervalSince1970:timeBucket];
 
-      NSString* timeBucketString = [timeBucketDate descriptionWithCalendarFormat:@"%Y-%m-%d" timeZone:nil locale:nil];
+      NSString* timeBucketString = [timeBucketDate descriptionWithCalendarFormat:@"%Y-%m-%d %H:%M:%S" timeZone:nil locale:nil];
 
       const float latitude_index = (floor(latitude*precision)/precision);  
       const float longitude_index = (floor(longitude*precision)/precision);
@@ -234,4 +235,18 @@
     [buckets setObject: newValue forKey: key];
 }
 
+- (IBAction)openAboutPanel:(id)sender {
+    
+    NSImage *img = [NSImage imageNamed: @"Icon"];
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+               @"1.0", @"Version",
+               @"iPhone Tracking", @"ApplicationName",
+               img, @"ApplicationIcon",
+               @"Copyright 2011, Pete Warden and Alasdair Allan", @"Copyright",
+               @"iPhone Tracking v1.0", @"ApplicationVersion",
+               nil];
+    
+    [[NSApplication sharedApplication] orderFrontStandardAboutPanelWithOptions:options];
+    
+}
 @end
