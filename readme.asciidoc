@@ -9,3 +9,44 @@ This tool scans through the backup files that are automatically created when you
 It *doesn't* record or share any of this information, it's purely a tool for visualizing the data on your machine. It's open source, so feel free to check the code and compile it yourself if you're concerned.
 
 The goal is to demonstrate how much data your iPhone is collecting on your movements, and how easy it is for any program on your computer to access that information. The coordinates and time periods are deliberately shown with low accuracy to make this application less useful as a snooping tool, but the underlying data has a lot more detail.
+
+FAQ
+
+==How does the application work?
+
+If you run it on an OS X machine that you've been syncing with an iPhone or an iPad with cellular plan, it will scan through the backup files that are automatically made, looking for the hidden file containing your location. If it finds this file, it will then display the location history on the map.
+
+==Does this application share the information with anyone?
+
+No. All the data stays on your machine. The code behind it has been open-sourced so you can inspect the code and compile it yourself if you're a developer.
+
+==What can I do to remove this data?
+
+This database of your locations is stored on your iPhone as well as in any of the automatic backups that are made when you sync it with iTunes. One thing that will help is choosing encrypted backups, since that will prevent other users or programs on your machine from viewing the data, but there will still be a copy on your device.
+
+==Why is Apple collecting this information?
+
+It's unclear. One guess might be that they have new features in mind that require a history of your location, but that's pure speculation.
+
+==Is Apple storing this information elsewhere?
+
+There's no evidence that it's being transmitted beyond your device and any machines you sync it with.
+
+==What's so bad about this?
+
+The most immediate problem is that this data is stored in an easily-readable form on your machine. Any other program you run or user with access to your machine can look through it.
+
+The more fundamental problem is that Apple are collecting this information at all. Cell-phone providers collect similar data almost inevitably as part of their operations, but it's kept behind their firewall. It normally requires a court order to gain access to it, whereas this is available to anyone who can get their hands on your phone or computer.
+
+By passively logging your location without your permission, Apple have made it possible for anyone from a jealous spouse to a private investigator to get a detailed picture of your movements.
+
+==Why did you open-source this code, won't that make the problem worse?
+
+We did hesitate over the right thing to do in this case, but when it became clear that "Individuals familiar with iPhone forensic analysis will be quite familiar" with it, http://ryanneal.wordpress.com/2011/03/18/war-against-the-iphones-consolidated-db/[as Ryan Neal puts it] and that at least one other person http://www.courbis.fr/spip.php?page=article&id_article=255[had tried to alert the public] but apparently failed to make it clear what was going on, a demonstration application seemed the lesser evil.
+
+To make it less useful for snoops, the spatial and temporal accuracy of the data has been artificially reduced. You can only animate week-by-week even though the data is timed to the second, and if you zoom in you'll see the points are constrained to a grid, so your exact location is not revealed. The underlying database has no such constraints, unfortunately.
+
+==Why are some points in places I've never visited?
+
+As far as we can tell, the location is determined by triangulating against the nearest cell-phone towers. This isn't as accurate as GPS, but presumably takes less power. In some cases it can get very confused and temporarily think you're several miles from your actual location, but these tend to be intermittent glitches.
+
