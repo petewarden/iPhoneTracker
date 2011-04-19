@@ -80,7 +80,26 @@
     <h3>How does the application work?</h3> 
  
     <p>If you run it on an OS X machine that you’ve been syncing with an iPhone or an iPad with cellular plan, it will scan through the backup files that are automatically made, looking for the hidden file containing your location. If it finds this file, it will then display the location history on the map.</p> 
- 
+  
+    <h3>How can I examine the data without running the application?</h3>
+    
+    <p>It will be stored in a folder inside /Users/<your user name>/Library/Application Support/MobileSync/Backups/. Each time you sync up an iOS device (iPad, iPhone, etc) files will be copied into a new folder here. The names of the folders and the files within them are mostly random strings, but there are some index files like Info.plist and Manifest.mbdb. Find the folder that has the most recent backup by looking at the modified dates of the files. Then, load Info.plist into a text editor to see what device it's for. You should see a 'Device Name' value in the XML, make sure that it matches your iPhone.</p>
+
+    <p>The Manifest.mbdb and Manifest.mbdx files contain a listing of the real names of the files represented by random strings in that folder. Luckily, Alasdair found a Python script here that can convert those:</p>
+    <p><a href="http://stackoverflow.com/questions/3085153/how-to-parse-the-manifest-mbdb-file-in-an-ios-4-0-itunes-backup">http://stackoverflow.com/questions/3085153/how-to-parse-the-manifest-mbdb-file-in-an-ios-4-0-itunes-backup</a></p>
+    
+    <p>If you cd into the folder in the terminal, and run iphonels.py you'll see a listing of all the files with their real names. Now, pipe it through grep to find the file we want, eg:</p>
+    
+    <pre>~/Downloads/iphonels.py | grep "consolidated"</pre>
+
+    <p>You should see something like this:</p>
+    
+    <pre>-rw-r--r-- 00000000 00000000 28082176 1297319654 1297319654 1282888290 (4096c9ec676f2847dc283405900e284a7c815836)RootDomain::Library/Caches/locationd/consolidated.db</pre>
+
+    <p>That text in brackets just before 'RootDomain::' is the name of the actual file on disk that holds the location data. Since it's an SQLite database file, you can use any standard SQLite browser, I'm using this Firefox plugin: <a href="https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/">https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/</a></p>
+
+    <p>Open up the file, choose the 'CellLocation' table, and you can browse the tens of thousands of points that it has collected, I've attached a screenshot. The most interesting data is the latitude, longitude location and the timestamp. The timestamp shows the time in seconds since January 1st 2001.</p>
+     
     <h3>Does this application share the information with anyone?</h3> 
  
     <p>No. All the data stays on your machine. The code behind it has been open-sourced so you can inspect the code and compile it yourself if you’re a developer.</p> 
