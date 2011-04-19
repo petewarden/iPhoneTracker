@@ -72,9 +72,14 @@
     <img src="southofengland.png"/>
     </div>
 
-    <iframe src="http://player.vimeo.com/video/22610355?title=0&amp;byline=0&amp;portrait=0" width="400" height="300" frameborder="0"></iframe><p><a href="http://vimeo.com/22610355">Washington DC to New York</a> from <a href="http://vimeo.com/aallan">Alasdair Allan</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+    <iframe src="http://player.vimeo.com/video/22610355?title=0&amp;byline=0&amp;portrait=0" width="340" height="250" frameborder="0" style="float:left; margin-right: 8px;"></iframe>
 
-    <iframe src="http://player.vimeo.com/video/22608787?title=0&amp;byline=0&amp;portrait=0" width="400" height="300" frameborder="0"></iframe><p><a href="http://vimeo.com/22608787">Oxford to Cambridge and then London</a> from <a href="http://vimeo.com/aallan">Alasdair Allan</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+    <iframe src="http://player.vimeo.com/video/22608787?title=0&amp;byline=0&amp;portrait=0" width="340" height="250" frameborder="0" style="float:left;"></iframe>
+
+    <div style="clear:both;"></div>
+    
+    <br/>
+    <br/>
 
     <h2>Authors</h2>
 <p>Alasdair Allan (alasdair@babilim.co.uk)
@@ -102,7 +107,7 @@
   
     <h3>How can I examine the data without running the application?</h3>
     
-    <p>It will be stored in a folder inside /Users/<your user name>/Library/Application Support/MobileSync/Backups/. Each time you sync up an iOS device (iPad, iPhone, etc) files will be copied into a new folder here. The names of the folders and the files within them are mostly random strings, but there are some index files like Info.plist and Manifest.mbdb. Find the folder that has the most recent backup by looking at the modified dates of the files. Then, load Info.plist into a text editor to see what device it's for. You should see a 'Device Name' value in the XML, make sure that it matches your iPhone.</p>
+    <p>It will be stored in a folder inside /Users/&lt;your user name&gt;/Library/Application Support/MobileSync/Backups/. Each time you sync up an iOS device (iPad, iPhone, etc) files will be copied into a new folder here. The names of the folders and the files within them are mostly random strings, but there are some index files like Info.plist and Manifest.mbdb. Find the folder that has the most recent backup by looking at the modified dates of the files. Then, load Info.plist into a text editor to see what device it's for. You should see a 'Device Name' value in the XML, make sure that it matches your iPhone.</p>
 
     <p>The Manifest.mbdb and Manifest.mbdx files contain a listing of the real names of the files represented by random strings in that folder. Luckily, Alasdair found a Python script here that can convert those:</p>
     <p><a href="http://stackoverflow.com/questions/3085153/how-to-parse-the-manifest-mbdb-file-in-an-ios-4-0-itunes-backup">http://stackoverflow.com/questions/3085153/how-to-parse-the-manifest-mbdb-file-in-an-ios-4-0-itunes-backup</a></p>
