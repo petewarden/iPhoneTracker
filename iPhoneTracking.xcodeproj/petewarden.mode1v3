@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -320,6 +318,8 @@
 							<key>Dock</key>
 							<array>
 								<dict>
+									<key>BecomeActive</key>
+									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
@@ -334,14 +334,19 @@
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
 												<string>readme.asciidoc</string>
+												<key>_historyCapacity</key>
+												<integer>0</integer>
+												<key>bookmark</key>
+												<string>59C0BE8C135D021800378314</string>
 												<key>history</key>
 												<array>
 													<string>59F0A34E13593DD300098746</string>
 													<string>59F0A37213593F3100098746</string>
 													<string>59F0A4911359770A00098746</string>
-													<string>59F0A51D135A037F00098746</string>
 													<string>59F0A657135A534500098746</string>
-													<string>59F0A658135A534500098746</string>
+													<string>59C0BDBB135BF6C600378314</string>
+													<string>59C0BDBC135BF6C600378314</string>
+													<string>59C0BDBD135BF6C600378314</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -592,13 +597,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>59C0BDB2135BF39800378314</string>
+		<string>59C0BE8B135CFFE100378314</string>
 		<string>59C0BDB3135BF39800378314</string>
 		<string>59C0BDB4135BF39800378314</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>/Users/petewarden/Projects/iPhoneTracking/iPhoneTracking.xcodeproj</string>
 		<string>59F0A2C413591AB500098746</string>
+		<string>/Users/petewarden/Projects/iPhoneTracking/iPhoneTracking.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>66 288 1645 890 0 0 1920 1178 </string>

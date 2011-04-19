@@ -4,7 +4,7 @@ iPhone Tracker
 = iPhone Tracker
 By http://twitter.com/aallan[Alasdair Allan] and http://twitter.com/petewarden[Pete Warden].
 
-This tool scans through the backup files that are automatically created when you sync your iPhone with your OS X computer, extracts any recorded location information, and displays it as an animatable map. 
+When you run this application it scans through the backup files that are automatically created when you sync your iPhone with your OS X computer, extracts any recorded location information, and displays it as an animatable map. 
 
 It *doesn't* record or share any of this information, it's purely a tool for visualizing the data on your machine. It's open source, so feel free to check the code and compile it yourself if you're concerned.
 
@@ -50,3 +50,13 @@ To make it less useful for snoops, the spatial and temporal accuracy of the data
 
 As far as we can tell, the location is determined by triangulating against the nearest cell-phone towers. This isn't as accurate as GPS, but presumably takes less power. In some cases it can get very confused and temporarily think you're several miles from your actual location, but these tend to be intermittent glitches.
 
+== How was it discovered?
+
+We've been collaborating on several location data visualization projects, for example this map of radiation levels in Japan:
+http://www.guardian.co.uk/science/blog/2011/mar/24/fukushima-radiation-levels
+
+We'd been discussing doing a visualization of mobile data, and while he was researching into what was available, Alasdair discovered this file. At first we weren't sure how much data was there, but after we dug further and visualized the extracted data, it became clear that there was a scary amount of detail on our movements.
+
+== What's your relationship with Apple?
+
+Pete worked for Apple for five years, and left three years ago on good terms. He had no contact with anything iPhone related, (he worked on desktop visualization software) and received no help or information from inside the company. We're both big fans of Apple's products, and take no pleasure in uncovering this issue. 
