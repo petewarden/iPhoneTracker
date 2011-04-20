@@ -16,6 +16,9 @@
       margin: 0 auto;
       width: 700px;
     }
+    a { text-decoration: underline; }
+    a:link { text-decoration: underline;}
+    a:visited { text-decoration: underline;}
     h1 { font-size: 3.8em; margin-bottom: 3px; }
     h1 .small { font-size: 0.4em; }
     h1 a { text-decoration: none }
@@ -72,9 +75,12 @@
     <img src="southofengland.png"/>
     </div>
 
-    <iframe src="http://player.vimeo.com/video/22610355?title=0&amp;byline=0&amp;portrait=0" width="340" height="250" frameborder="0" style="float:left; margin-right: 8px;"></iframe>
+    <iframe src="http://player.vimeo.com/video/22610355?title=0&amp;byline=0&amp;portrait=0" width="680" height="500" frameborder="0" style=""></iframe>
+    <br/>
+    <br/>
+    <br/>
 
-    <iframe src="http://player.vimeo.com/video/22608787?title=0&amp;byline=0&amp;portrait=0" width="340" height="250" frameborder="0" style="float:left;"></iframe>
+    <iframe src="http://player.vimeo.com/video/22608787?title=0&amp;byline=0&amp;portrait=0" width="680" height="500" frameborder="0" style="float:left;"></iframe>
 
     <div style="clear:both;"></div>
     
@@ -101,13 +107,36 @@
     <br/>
     <br/>
     <a name="faq"></a><h2>FAQ</h2>
+    <br>
+    <a href="#1"><span>How does the application work?</span></a> 
+    <br>
+    <a href="#2"><span>How can I examine the data without running the application?</span></a> 
+    <br>
+    <a href="#3"><span>Does this application share the information with anyone?</span></a> 
+    <br>
+    <a href="#4"><span>What can I do to remove this data?</span></a> 
+    <br>
+    <a href="#5"><span>Why is Apple collecting this information?</span></a> 
+    <br>
+    <a href="#6"><span>Is Apple storing this information elsewhere?</span></a> 
+    <br>
+    <a href="#7"><span>What’s so bad about this?</span></a> 
+    <br>
+    <a href="#8"><span>Why did you open-source this code, won’t that make the problem worse?</span></a> 
+    <br>
+    <a href="#9"><span>Why are some points in places I’ve never visited?</span></a> 
+    <br>
+    <a href="#10"><span>How was it discovered?</span></a> 
+    <br>
+    <a href="#11"><span>What’s your relationship with Apple?</span></a> 
      
     <br>
-    <h3>How does the application work?</h3> 
+    <br>
+    <a name="1"></a><h3>How does the application work?</h3> 
  
     <p>If you run it on an OS X machine that you’ve been syncing with an iPhone or an iPad with cellular plan, it will scan through the backup files that are automatically made, looking for the hidden file containing your location. If it finds this file, it will then display the location history on the map.</p> 
   
-    <h3>How can I examine the data without running the application?</h3>
+    <a name="2"></a><h3>How can I examine the data without running the application?</h3>
     
     <p>It will be stored in a folder inside /Users/&lt;your user name&gt;/Library/Application Support/MobileSync/Backups/. Each time you sync up an iOS device (iPad, iPhone, etc) files will be copied into a new folder here. The names of the folders and the files within them are mostly random strings, but there are some index files like Info.plist and Manifest.mbdb. Find the folder that has the most recent backup by looking at the modified dates of the files. Then, load Info.plist into a text editor to see what device it's for. You should see a 'Device Name' value in the XML, make sure that it matches your iPhone.</p>
 
@@ -127,23 +156,23 @@
 
     <p>Open up the file, choose the 'CellLocation' table, and you can browse the tens of thousands of points that it has collected. The most interesting data is the latitude, longitude location and the timestamp. The timestamp shows the time in seconds since January 1st 2001.</p>
      
-    <h3>Does this application share the information with anyone?</h3> 
+    <a name="3"></a><h3>Does this application share the information with anyone?</h3> 
  
     <p>No. All the data stays on your machine. The code behind it has been open-sourced so you can inspect the code and compile it yourself if you’re a developer.</p> 
  
-    <h3>What can I do to remove this data?</h3> 
+    <a name="4"></a><h3>What can I do to remove this data?</h3> 
  
     <p>This database of your locations is stored on your iPhone as well as in any of the automatic backups that are made when you sync it with iTunes. One thing that will help is choosing encrypted backups, since that will prevent other users or programs on your machine from viewing the data, but there will still be a copy on your device.</p> 
  
-    <h3>Why is Apple collecting this information?</h3> 
+    <a name="5"></a><h3>Why is Apple collecting this information?</h3> 
  
     <p>It’s unclear. One guess might be that they have new features in mind that require a history of your location, but that’s pure speculation. The fact that it's transferred across devices when you restore or migrate is evidence the data-gathering isn't accidental.</p> 
  
-    <h3>Is Apple storing this information elsewhere?</h3> 
+    <a name="6"></a><h3>Is Apple storing this information elsewhere?</h3> 
  
     <p>There’s no evidence that it’s being transmitted beyond your device and any machines you sync it with.</p> 
  
-    <h3>What’s so bad about this?</h3> 
+    <a name="7"></a><h3>What’s so bad about this?</h3> 
  
     <p>The most immediate problem is that this data is stored in an easily-readable form on your machine. Any other program you run or user with access to your machine can look through it.</p> 
 
@@ -151,23 +180,23 @@
 
     <p>By passively logging your location without your permission, Apple have made it possible for anyone from a jealous spouse to a private investigator to get a detailed picture of your movements.</p> 
  
-    <h3>Why did you open-source this code, won’t that make the problem worse?</h3> 
+    <a name="8"></a><h3>Why did you open-source this code, won’t that make the problem worse?</h3> 
  
     <p>We did hesitate over the right thing to do in this case, but when it became clear that "Individuals familiar with iPhone forensic analysis will be quite familiar" with it, <a href="http://ryanneal.wordpress.com/2011/03/18/war-against-the-iphones-consolidated-db/">as Ryan Neal puts it</a> and that at least one other person <a href="http://www.courbis.fr/spip.php?page=article&amp;id_article=255">had tried to alert the public</a> but apparently failed to make it clear what was going on, a demonstration application seemed the lesser evil.</p> 
 
     <p>To make it less useful for snoops, the spatial and temporal accuracy of the data has been artificially reduced. You can only animate week-by-week even though the data is timed to the second, and if you zoom in you’ll see the points are constrained to a grid, so your exact location is not revealed. The underlying database has no such constraints, unfortunately.</p> 
  
-    <h3>Why are some points in places I’ve never visited?</h3> 
+    <a name="9"></a><h3>Why are some points in places I’ve never visited?</h3> 
  
     <p>As far as we can tell, the location is determined by triangulating against the nearest cell-phone towers. This isn’t as accurate as GPS, but presumably takes less power. In some cases it can get very confused and temporarily think you’re several miles from your actual location, but these tend to be intermittent glitches.</p> 
  
-    <h3>How was it discovered?</h3> 
+    <a name="10"></a><h3>How was it discovered?</h3> 
  
     <p>We’ve been collaborating on several location data visualization projects, for example this map of radiation levels in Japan:
 <a href="http://www.guardian.co.uk/science/blog/2011/mar/24/fukushima-radiation-levels">http://www.guardian.co.uk/science/blog/2011/mar/24/fukushima-radiation-levels</a></p> 
     <p>We’d been discussing doing a visualization of mobile data, and while he was researching into what was available, Alasdair discovered this file. At first we weren’t sure how much data was there, but after we dug further and visualized the extracted data, it became clear that there was a scary amount of detail on our movements. It also became obvious that at least some other people knew about it, but it wasn't being publicized.</p> 
  
-    <h3>What’s your relationship with Apple?</h3> 
+    <a name="11"></a><h3>What’s your relationship with Apple?</h3> 
  
     <p>Pete worked for Apple for five years, and left three years ago on good terms. He had no contact with anything iPhone related, (he worked on desktop visualization software) and received no help or information from inside the company while researching this problem. We’re both big fans of Apple’s products, and take no pleasure in uncovering this issue.</p> 
 
