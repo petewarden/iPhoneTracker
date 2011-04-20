@@ -149,8 +149,16 @@
   const float precision = 100;
   NSMutableDictionary* buckets = [NSMutableDictionary dictionary];
 
+  // Default query is for GSM iPhone
   NSString* queries[] = {@"SELECT * FROM CellLocation;", @"SELECT * FROM WifiLocation;"};
-  
+
+  // Determine if CDMA or GSM iPhone.
+  BOOL isCDMAiPhone = [database tableExists:@"CdmaCellLocation"];
+  if (isCDMAiPhone) {
+	//  Adjust first query for CDMA Cell Locations
+	queries[0] = @"SELECT * from CdmaCellLocation;";	
+  }	
+	
   // Temporarily disabled WiFi location pulling, since it's so dodgy. Change to 
   for (int pass=0; pass<1; /*pass<2;*/ pass+=1) {
   
