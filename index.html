@@ -129,6 +129,8 @@
     <a href="#10"><span>How was it discovered?</span></a> 
     <br>
     <a href="#11"><span>What’s your relationship with Apple?</span></a> 
+    <br>
+    <a href="#12"><span>You say no data is shared, but why do I see the web accessed when I run the app?<span></a> 
      
     <br>
     <br>
@@ -199,6 +201,18 @@
     <a name="11"></a><h3>What’s your relationship with Apple?</h3> 
  
     <p>Pete worked for Apple for five years, and left three years ago on good terms. He had no contact with anything iPhone related, (he worked on desktop visualization software) and received no help or information from inside the company while researching this problem. We’re both big fans of Apple’s products, and take no pleasure in uncovering this issue.</p> 
+
+    <a name="12"></a><h3>You say no data is shared, but why do I see the web accessed when I run the app?</h3> 
+ 
+    <p>The visualization is implemented as a view onto a local web page using the OpenHeatMap jQuery plugin. This means that the following resources are pulled from the web:</p> 
+
+    <p>OpenStreetMap background tiles</p>
+    
+    <p>The jQuery main script file hosted on Google</p>
+    
+    <p>The OpenHeatMap script and CSS files</p>
+    
+    <p>All of these are just static files that are downloaded from the web, and <strong>none</strong> of your data ever leaves your machine. We do still recommend inspecting the source code if you're a developer, or even just relying on <a href="#2">the directions that allow you to inspect the data</a> using standard database tools.</p>
 
   </div>
 
