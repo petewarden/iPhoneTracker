@@ -248,4 +248,9 @@
     [[NSApplication sharedApplication] orderFrontStandardAboutPanelWithOptions:options];
     
 }
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
+{
+	return YES;
+}
 @end
