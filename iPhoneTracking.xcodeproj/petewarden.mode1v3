@@ -280,7 +280,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>1</integer>
+									<integer>21</integer>
+									<integer>17</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -325,7 +326,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>readme.asciidoc</string>
+										<string>index.html</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -333,11 +334,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>readme.asciidoc</string>
+												<string>index.html</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>59C0BEC3135EC56400378314</string>
+												<string>59C0BEDC135F33A500378314</string>
 												<key>history</key>
 												<array>
 													<string>59F0A34E13593DD300098746</string>
@@ -345,9 +346,9 @@
 													<string>59F0A4911359770A00098746</string>
 													<string>59C0BDBB135BF6C600378314</string>
 													<string>59C0BDBC135BF6C600378314</string>
-													<string>59C0BEB9135EC52900378314</string>
 													<string>59C0BEBA135EC52900378314</string>
-													<string>59C0BEBB135EC52900378314</string>
+													<string>59C0BEDA135F33A500378314</string>
+													<string>59C0BEDB135F33A500378314</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -386,7 +387,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>59C0BEC4135EC56400378314</string>
+												<string>59C0BEDD135F33A500378314</string>
 												<key>history</key>
 												<array>
 													<string>59F0A34C13593DD300098746</string>
@@ -603,13 +604,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>59C0BEC2135EC52900378314</string>
+		<string>59C0BEDE135F33A500378314</string>
 		<string>59C0BEAD135D1D2300378314</string>
 		<string>59C0BEAE135D1D2300378314</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>59F0A2C413591AB500098746</string>
 		<string>/Users/petewarden/Projects/iPhoneTracker/iPhoneTracking.xcodeproj</string>
+		<string>59F0A2C413591AB500098746</string>
 	</array>
 	<key>WindowString</key>
 	<string>66 288 1645 890 0 0 1920 1178 </string>
