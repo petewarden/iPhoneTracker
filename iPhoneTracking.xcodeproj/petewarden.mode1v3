@@ -337,16 +337,17 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>59C0BEA0135D1D2300378314</string>
+												<string>59C0BEBC135EC52900378314</string>
 												<key>history</key>
 												<array>
 													<string>59F0A34E13593DD300098746</string>
 													<string>59F0A37213593F3100098746</string>
 													<string>59F0A4911359770A00098746</string>
-													<string>59F0A657135A534500098746</string>
 													<string>59C0BDBB135BF6C600378314</string>
 													<string>59C0BDBC135BF6C600378314</string>
-													<string>59C0BE8C135D021800378314</string>
+													<string>59C0BEB9135EC52900378314</string>
+													<string>59C0BEBA135EC52900378314</string>
+													<string>59C0BEBB135EC52900378314</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -358,14 +359,14 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{0, 0}, {617, 638}}</string>
+										<string>{{0, 0}, {672, 638}}</string>
 										<key>RubberWindowFrame</key>
 										<string>66 288 1645 890 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
 									<key>Proportion</key>
-									<string>617pt</string>
+									<string>672pt</string>
 								</dict>
 								<dict>
 									<key>ContentConfiguration</key>
@@ -373,7 +374,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>iPhoneTrackingAppDelegate.h</string>
+										<string>index.html</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -381,17 +382,22 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>iPhoneTrackingAppDelegate.h</string>
+												<string>index.html</string>
+												<key>_historyCapacity</key>
+												<integer>0</integer>
+												<key>bookmark</key>
+												<string>59C0BEC0135EC52900378314</string>
 												<key>history</key>
 												<array>
 													<string>59F0A34C13593DD300098746</string>
 													<string>59F0A34E13593DD300098746</string>
-													<string>59F0A37513593F3100098746</string>
 													<string>59F0A3E1135950C000098746</string>
 													<string>59F0A523135A046B00098746</string>
 													<string>59F0A5C9135A35CE00098746</string>
 													<string>59F0A5F7135A4B3700098746</string>
 													<string>59C0BD7C135BB48F00378314</string>
+													<string>59C0BEBD135EC52900378314</string>
+													<string>59C0BEBE135EC52900378314</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -403,14 +409,14 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{622, 0}, {667, 638}}</string>
+										<string>{{677, 0}, {612, 638}}</string>
 										<key>RubberWindowFrame</key>
 										<string>66 288 1645 890 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
 									<key>Proportion</key>
-									<string>667pt</string>
+									<string>612pt</string>
 								</dict>
 							</array>
 							<key>Proportion</key>
@@ -597,13 +603,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>59C0BEAC135D1D2300378314</string>
+		<string>59C0BEC2135EC52900378314</string>
 		<string>59C0BEAD135D1D2300378314</string>
 		<string>59C0BEAE135D1D2300378314</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>/Users/petewarden/Projects/iPhoneTracker/iPhoneTracking.xcodeproj</string>
 		<string>59F0A2C413591AB500098746</string>
+		<string>/Users/petewarden/Projects/iPhoneTracker/iPhoneTracking.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>66 288 1645 890 0 0 1920 1178 </string>
