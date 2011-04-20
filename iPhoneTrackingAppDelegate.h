@@ -8,7 +8,11 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 
+#if (MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_5)
+@interface iPhoneTrackingAppDelegate : NSObject {
+#else
 @interface iPhoneTrackingAppDelegate : NSObject <NSApplicationDelegate> {
+#endif
   NSWindow *window;
   WebView *webView;
   WebScriptObject* scriptObject;
