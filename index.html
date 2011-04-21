@@ -1,85 +1,227 @@
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="http://static.openheatmap.com/css/mainstyle.css"/>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://static.openheatmap.com/scripts/jquery.openheatmap.js"></script>
-<script type='text/javascript'>
+  <meta charset='utf-8'>
 
-g_isMapCreated = false;
-g_csvString = null;
-g_deviceName = null;
+  <title>petewarden/iPhoneTracker @ GitHub</title>
 
-g_mapSettings = {
-  "zoom_slider_power":5,
-  "zoomed_out_degrees_per_pixel":-180,
-  "zoomed_in_degrees_per_pixel":-0.01,
-  "is_gradient_value_range_set":"false",
-  "gradient_value_min":"1",
-  "gradient_value_max":"14",
-  "point_blob_radius":8.32,
-  "point_blob_value":1,
-  "show_map_tiles":true,
-  "map_server_root":"http:\/\/a.tile.openstreetmap.org\/",
-  "information_alpha":0.92,
-  "show_zoom":true,
-  "allow_pan":true,
-  "point_drawing_shape":"circle",
-  "circle_line_color":0,
-  "circle_line_alpha":1,
-  "circle_line_thickness":1,
-  "is_point_blob_radius_in_pixels":true,
-  "credit_text": "OpenStreetMap/OpenHeatMap",
-};
+  <link rel="stylesheet" type="text/css" href="http://static.openheatmap.com/css/mainstyle.css"/>
 
-$(document).ready(function() {
-
-  $('#openheatmap_container').insertOpenHeatMap({
-    width: 1000, 
-    height: 720,
-    prefer: 'canvas'
-  });
-});
-
-function onMapCreated() {
-  var openHeatMap = $.getOpenHeatMap();
-
-  for (var key in g_mapSettings) {
-    var value = g_mapSettings[key];
-    openHeatMap.setSetting(key, value);
-  }
+  <style type="text/css">
+    body {
+      margin-top: 1.0em;
+      font-size: 125%;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+    a { text-decoration: underline; }
+    a:link { text-decoration: underline;}
+    a:visited { text-decoration: underline;}
+    h1 { font-size: 3.8em; margin-bottom: 3px; }
+    h1 .small { font-size: 0.4em; }
+    h1 a { text-decoration: none }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.2em; text-align: left; }
+    a { }
+    .description { margin-bottom: 30px; margin-top: 30px; }
+    .download { float: right; }
+    pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+  </style>
   
-  openHeatMap.setColorGradient(["#eaf8b800","#eae40f16","#4f2d00dd"]);
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22834888-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>
   
-  g_isMapCreated = true;
-
-  if (g_csvString!=null) {
-    loadLocationData();
-  }
-}
-
-function storeLocationData(csvString, deviceName) {
-  g_csvString = csvString;
-  g_deviceName = deviceName;
-  if (g_isMapCreated) {
-    loadLocationData();
-  }
-}
-
-function loadLocationData() {
-  var openHeatMap = $.getOpenHeatMap();
-
-  openHeatMap.loadValuesFromCSVString(g_csvString);
-  $('#message').text(g_deviceName);
-
-  openHeatMap.setAnimationTime('All Time');
-}
-
-</script>
 </head>
-<body style="margin:0px; padding:0px; position:relative;">
-<div id="openheatmap_container" style="margin:0px; padding:0px;"></div>
-<div id="message" style="position:absolute; top:20px; left:0px; width: 1000px; text-align:center; font-size:200%;">
-Loading  <img src="http://static.openheatmap.com/images/loading.gif"/>
-</div>
+
+<body>
+  <a href="http://github.com/petewarden/iPhoneTracker"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+    <div class="download">
+      <a href="http://github.com/petewarden/iPhoneTracker/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+      <a href="http://github.com/petewarden/iPhoneTracker/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+    <h1><a href="http://github.com/petewarden/iPhoneTracker">iPhone Tracker</a></h1>
+
+    <div class="description">
+    This open-source application maps the information that your iPhone is recording about your movements. It doesn't record anything itself, it only displays files that are already hidden on your computer.
+    <br>
+    <br>
+    <a href="http://static.openheatmap.com.s3.amazonaws.com/iPhoneTracker.app.zip"><u>Download the application</u></a>
+    <br>
+    <br>
+    <a href="#faq"><u>Read the FAQ</u></a>
+    <br>
+    <br>
+    <img src="southofengland.png"/>
+    </div>
+
+    <iframe src="http://player.vimeo.com/video/22610355?title=0&amp;byline=0&amp;portrait=0" width="680" height="500" frameborder="0" style=""></iframe>
+    <br/>
+    <br/>
+    <br/>
+
+    <iframe src="http://player.vimeo.com/video/22608787?title=0&amp;byline=0&amp;portrait=0" width="680" height="500" frameborder="0" style="float:left;"></iframe>
+
+    <div style="clear:both;"></div>
+    
+    <br/>
+    <br/>
+
+    <h2>Authors</h2>
+<p>Alasdair Allan (alasdair@babilim.co.uk)
+<br/>Pete Warden (pete@petewarden.com)
+<br/>
+<br/>      </p>
+
+    <h2>Download Source</h2>
+    <p>
+      You can download this project in either
+      <a href="http://github.com/petewarden/iPhoneTracker/zipball/master">zip</a> or
+      <a href="http://github.com/petewarden/iPhoneTracker/tarball/master">tar</a> formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/petewarden/iPhoneTracker</pre>
+    </p>
+
+    <br/>
+    <br/>
+    <a name="faq"></a><h2>FAQ</h2>
+    <br>
+    <a href="#1"><span>How does the application work?</span></a> 
+    <br>
+	<a href="#1.5"><span>Are there any system requirements?</span></a> 
+    <br>
+    <a href="#2"><span>How can I examine the data without running the application?</span></a> 
+    <br>
+    <a href="#3"><span>Does this application share the information with anyone?</span></a> 
+    <br>
+    <a href="#4"><span>What can I do to remove this data?</span></a> 
+    <br>
+    <a href="#5"><span>Why is Apple collecting this information?</span></a> 
+    <br>
+    <a href="#6"><span>Is Apple storing this information elsewhere?</span></a> 
+    <br>
+    <a href="#7"><span>What’s so bad about this?</span></a> 
+    <br>
+    <a href="#8"><span>Why did you open-source this code, won’t that make the problem worse?</span></a> 
+    <br>
+    <a href="#9"><span>Why are some points in places I’ve never visited?</span></a> 
+    <br>
+    <a href="#10"><span>How was it discovered?</span></a> 
+    <br>
+    <a href="#11"><span>What’s your relationship with Apple?</span></a> 
+    <br>
+    <a href="#12"><span>You say no data is shared, but why do I see the web accessed when I run the app?<span></a> 
+     
+    <br>
+    <br>
+    <a name="1"></a><h3>How does the application work?</h3> 
+ 
+    <p>If you run it on an OS X machine that you’ve been syncing with an iPhone or an iPad with cellular plan, it will scan through the backup files that are automatically made, looking for the hidden file containing your location. If it finds this file, it will then display the location history on the map.</p> 
+  
+	<a name="1.5"></a><h3>Are there any system requirements?</h3>
+	
+	<p>Yes. This app will NOT run on PPC Macs or on anything below Mac OS X 10.6. Thank you for your understanding.</p>
+
+    <a name="2"></a><h3>How can I examine the data without running the application?</h3>
+    
+    <p>It will be stored in a folder inside /Users/&lt;your user name&gt;/Library/Application Support/MobileSync/Backups/. Each time you sync up an iOS device (iPad, iPhone, etc) files will be copied into a new folder here. The names of the folders and the files within them are mostly random strings, but there are some index files like Info.plist and Manifest.mbdb. Find the folder that has the most recent backup by looking at the modified dates of the files. Then, load Info.plist into a text editor to see what device it's for. You should see a 'Device Name' value in the XML, make sure that it matches your iPhone.</p>
+
+    <p>The Manifest.mbdb and Manifest.mbdx files contain a listing of the real names of the files represented by random strings in that folder. Luckily, Alasdair found a Python script here that can convert those:</p>
+    <p><a href="http://stackoverflow.com/questions/3085153/how-to-parse-the-manifest-mbdb-file-in-an-ios-4-0-itunes-backup">http://stackoverflow.com/questions/3085153/how-to-parse-the-manifest-mbdb-file-in-an-ios-4-0-itunes-backup</a></p>
+    
+    <p>If you cd into the folder in the terminal, and run iphonels.py you'll see a listing of all the files with their real names. Now, pipe it through grep to find the file we want, eg:</p>
+    
+    <pre>~/Downloads/iphonels.py | grep "consolidated"</pre>
+
+    <p>You should see something like this:</p>
+    
+    <p>-rw-r--r-- 00000000 00000000 28082176 1297319654 1297319654 1282888290 (4096c9ec676f2847dc283405900e284a7c815836)RootDomain::Library/Caches/locationd/consolidated.db</p>
+
+    <p>That text in brackets just before 'RootDomain::' is the name of the actual file on disk that holds the location data. Since it's an SQLite database file, you can use any standard SQLite browser, I'm using this Firefox plugin:</p>
+    <p><a href="https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/">https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/</a></p>
+
+    <p>Open up the file, choose the 'CellLocation' table, and you can browse the tens of thousands of points that it has collected. The most interesting data is the latitude, longitude location and the timestamp. The timestamp shows the time in seconds since January 1st 2001.</p>
+     
+    <a name="3"></a><h3>Does this application share the information with anyone?</h3> 
+ 
+    <p>No. All the data stays on your machine. The code behind it has been open-sourced so you can inspect the code and compile it yourself if you’re a developer.</p> 
+ 
+    <a name="4"></a><h3>What can I do to remove this data?</h3> 
+ 
+    <p>This database of your locations is stored on your iPhone as well as in any of the automatic backups that are made when you sync it with iTunes. One thing that will help is choosing encrypted backups, since that will prevent other users or programs on your machine from viewing the data, but there will still be a copy on your device.</p> 
+ 
+    <a name="5"></a><h3>Why is Apple collecting this information?</h3> 
+ 
+    <p>It’s unclear. One guess might be that they have new features in mind that require a history of your location, but that’s pure speculation. The fact that it's transferred across devices when you restore or migrate is evidence the data-gathering isn't accidental.</p> 
+ 
+    <a name="6"></a><h3>Is Apple storing this information elsewhere?</h3> 
+ 
+    <p>There’s no evidence that it’s being transmitted beyond your device and any machines you sync it with.</p> 
+ 
+    <a name="7"></a><h3>What’s so bad about this?</h3> 
+ 
+    <p>The most immediate problem is that this data is stored in an easily-readable form on your machine. Any other program you run or user with access to your machine can look through it.</p> 
+
+    <p>The more fundamental problem is that Apple are collecting this information at all. Cell-phone providers collect similar data almost inevitably as part of their operations, but it’s kept behind their firewall. It normally requires a court order to gain access to it, whereas this is available to anyone who can get their hands on your phone or computer.</p> 
+
+    <p>By passively logging your location without your permission, Apple have made it possible for anyone from a jealous spouse to a private investigator to get a detailed picture of your movements.</p> 
+ 
+    <a name="8"></a><h3>Why did you open-source this code, won’t that make the problem worse?</h3> 
+ 
+    <p>We did hesitate over the right thing to do in this case, but when it became clear that "Individuals familiar with iPhone forensic analysis will be quite familiar" with it, <a href="http://ryanneal.wordpress.com/2011/03/18/war-against-the-iphones-consolidated-db/">as Ryan Neal puts it</a> and that at least one other person <a href="http://www.courbis.fr/spip.php?page=article&amp;id_article=255">had tried to alert the public</a> but apparently failed to make it clear what was going on, a demonstration application seemed the lesser evil.</p> 
+
+    <p>To make it less useful for snoops, the spatial and temporal accuracy of the data has been artificially reduced. You can only animate week-by-week even though the data is timed to the second, and if you zoom in you’ll see the points are constrained to a grid, so your exact location is not revealed. The underlying database has no such constraints, unfortunately.</p> 
+ 
+    <a name="9"></a><h3>Why are some points in places I’ve never visited?</h3> 
+ 
+    <p>As far as we can tell, the location is determined by triangulating against the nearest cell-phone towers. This isn’t as accurate as GPS, but presumably takes less power. In some cases it can get very confused and temporarily think you’re several miles from your actual location, but these tend to be intermittent glitches.</p> 
+ 
+    <a name="10"></a><h3>How was it discovered?</h3> 
+ 
+    <p>We’ve been collaborating on several location data visualization projects, for example this map of radiation levels in Japan:
+<a href="http://www.guardian.co.uk/science/blog/2011/mar/24/fukushima-radiation-levels">http://www.guardian.co.uk/science/blog/2011/mar/24/fukushima-radiation-levels</a></p> 
+    <p>We’d been discussing doing a visualization of mobile data, and while he was researching into what was available, Alasdair discovered this file. At first we weren’t sure how much data was there, but after we dug further and visualized the extracted data, it became clear that there was a scary amount of detail on our movements. It also became obvious that at least some other people knew about it, but it wasn't being publicized.</p> 
+ 
+    <a name="11"></a><h3>What’s your relationship with Apple?</h3> 
+ 
+    <p>Pete worked for Apple for five years, and left three years ago on good terms. He had no contact with anything iPhone related, (he worked on desktop visualization software) and received no help or information from inside the company while researching this problem. We’re both big fans of Apple’s products, and take no pleasure in uncovering this issue.</p> 
+
+    <a name="12"></a><h3>You say no data is shared, but why do I see the web accessed when I run the app?</h3> 
+ 
+    <p>The visualization is implemented as a view onto a local web page using the OpenHeatMap jQuery plugin. This means that the following resources are pulled from the web:</p> 
+
+    <p>OpenStreetMap background tiles</p>
+    
+    <p>The jQuery main script file hosted on Google</p>
+    
+    <p>The OpenHeatMap script and CSS files</p>
+    
+    <p>All of these are just static files that are downloaded from the web, and <strong>none</strong> of your data ever leaves your machine. We do still recommend inspecting the source code if you're a developer, or even just relying on <a href="#2">the directions that allow you to inspect the data</a> using standard database tools.</p>
+
+  </div>
+
+  
 </body>
 </html>
