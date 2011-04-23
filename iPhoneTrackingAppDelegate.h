@@ -8,7 +8,13 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 
-@interface iPhoneTrackingAppDelegate : NSObject <NSApplicationDelegate> {
+// See http://stackoverflow.com/questions/1496788/building-for-10-5-in-xcode-3-2-on-snow-leopard-error
+#if (MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_5)
+@interface iPhoneTrackingAppDelegate : NSObject
+#else
+@interface iPhoneTrackingAppDelegate : NSObject <NSApplicationDelegate>
+#endif
+{
   NSWindow *window;
   WebView *webView;
   WebScriptObject* scriptObject;
