@@ -1,6 +1,11 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="http://static.openheatmap.com/css/mainstyle.css"/>
+<style type="text/css">
+a { text-decoration: underline; }
+a:link { text-decoration: underline;}
+a:visited { text-decoration: underline;}
+</style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="http://static.openheatmap.com/scripts/jquery.openheatmap.js"></script>
 <script type='text/javascript'>
@@ -80,6 +85,9 @@ function loadLocationData() {
 <div id="openheatmap_container" style="margin:0px; padding:0px;"></div>
 <div id="message" style="position:absolute; top:20px; left:0px; width: 1000px; text-align:center; font-size:200%;">
 Loading  <img src="http://static.openheatmap.com/images/loading.gif"/>
+</div>
+<div id="credit" style="position:absolute; top:700px; left:0px; width: 1000px; text-align:center; font-size:180%;">
+<i>Map Background © <a href="http://www.openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a></i>
 </div>
 </body>
 </html>
