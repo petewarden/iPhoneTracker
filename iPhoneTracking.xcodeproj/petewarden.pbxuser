@@ -9,15 +9,15 @@
 	};
 	256AC3D80F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {726, 535}}";
-			sepNavSelRange = "{449, 0}";
-			sepNavVisRange = "{0, 855}";
+			sepNavIntBoundsRect = "{{0, 0}, {726, 810}}";
+			sepNavSelRange = "{1141, 0}";
+			sepNavVisRange = "{187, 1292}";
 		};
 	};
 	256AC3D90F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {623, 4260}}";
-			sepNavSelRange = "{976, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {999, 4065}}";
+			sepNavSelRange = "{470, 0}";
 			sepNavVisRange = "{0, 1226}";
 		};
 	};
@@ -165,6 +165,23 @@
 			59C0BF1A136346A700378314 /* PBXTextBookmark */ = 59C0BF1A136346A700378314 /* PBXTextBookmark */;
 			59C0BF1B136346A700378314 /* PBXTextBookmark */ = 59C0BF1B136346A700378314 /* PBXTextBookmark */;
 			59C0BF1C136346A700378314 /* PBXTextBookmark */ = 59C0BF1C136346A700378314 /* PBXTextBookmark */;
+			59C0BF201363900700378314 /* PBXTextBookmark */ = 59C0BF201363900700378314 /* PBXTextBookmark */;
+			59C0BF211363900700378314 /* PBXTextBookmark */ = 59C0BF211363900700378314 /* PBXTextBookmark */;
+			59C0BF221363900700378314 /* PBXTextBookmark */ = 59C0BF221363900700378314 /* PBXTextBookmark */;
+			59C0BF231363900700378314 /* PBXTextBookmark */ = 59C0BF231363900700378314 /* PBXTextBookmark */;
+			59C0BF241363900700378314 /* PBXTextBookmark */ = 59C0BF241363900700378314 /* PBXTextBookmark */;
+			59C0BF251363900700378314 /* PBXTextBookmark */ = 59C0BF251363900700378314 /* PBXTextBookmark */;
+			59C0BF261363900700378314 /* PBXTextBookmark */ = 59C0BF261363900700378314 /* PBXTextBookmark */;
+			59C0BF271363900700378314 /* PBXTextBookmark */ = 59C0BF271363900700378314 /* PBXTextBookmark */;
+			59C0BF281363900700378314 /* PBXTextBookmark */ = 59C0BF281363900700378314 /* PBXTextBookmark */;
+			59C0BF291363900700378314 /* PBXTextBookmark */ = 59C0BF291363900700378314 /* PBXTextBookmark */;
+			59C0BF2A1363900700378314 /* PBXTextBookmark */ = 59C0BF2A1363900700378314 /* PBXTextBookmark */;
+			59C0BF2B1363A9A500378314 /* PBXTextBookmark */ = 59C0BF2B1363A9A500378314 /* PBXTextBookmark */;
+			59C0BF2C1363A9A500378314 /* PBXTextBookmark */ = 59C0BF2C1363A9A500378314 /* PBXTextBookmark */;
+			59C0BF2D1363AB0D00378314 /* PBXTextBookmark */ = 59C0BF2D1363AB0D00378314 /* PBXTextBookmark */;
+			59C0BF2E1363AB0D00378314 /* PBXTextBookmark */ = 59C0BF2E1363AB0D00378314 /* PBXTextBookmark */;
+			59C0BF2F1363AB0D00378314 /* PBXTextBookmark */ = 59C0BF2F1363AB0D00378314 /* PBXTextBookmark */;
+			59C0BF301363AB0D00378314 /* PBXTextBookmark */ = 59C0BF301363AB0D00378314 /* PBXTextBookmark */;
 			59F0A34C13593DD300098746 = 59F0A34C13593DD300098746 /* PlistBookmark */;
 			59F0A34E13593DD300098746 = 59F0A34E13593DD300098746 /* PBXTextBookmark */;
 			59F0A37213593F3100098746 = 59F0A37213593F3100098746 /* PBXTextBookmark */;
@@ -232,7 +249,7 @@
 		fRef = 256AC3D80F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.h */;
 		name = "iPhoneTrackingAppDelegate.h: 25";
 		rLen = 0;
-		rLoc = 1694;
+		rLoc = 1746;
 		rType = 0;
 		vrLen = 592;
 		vrLoc = 0;
@@ -252,7 +269,7 @@
 		fRef = 256AC3D80F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.h */;
 		name = "iPhoneTrackingAppDelegate.h: 25";
 		rLen = 0;
-		rLoc = 1694;
+		rLoc = 1746;
 		rType = 0;
 		vrLen = 592;
 		vrLoc = 0;
@@ -382,7 +399,7 @@
 		isa = PBXTextBookmark;
 		fRef = 59C0BEBF135EC52900378314 /* index.html */;
 		rLen = 0;
-		rLoc = 9223372036854786852;
+		rLoc = 9223372036854787339;
 		rType = 0;
 	};
 	59C0BEBF135EC52900378314 /* index.html */ = {
@@ -409,9 +426,9 @@
 		path = /Users/petewarden/Projects/iPhoneTrackingPage/index.html;
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {563, 4305}}";
-			sepNavSelRange = "{4895, 0}";
-			sepNavVisRange = "{4692, 1804}";
+			sepNavIntBoundsRect = "{{0, 0}, {563, 4065}}";
+			sepNavSelRange = "{6094, 0}";
+			sepNavVisRange = "{5786, 1909}";
 		};
 	};
 	59C0BEC3135EC56400378314 /* PBXTextBookmark */ = {
@@ -449,7 +466,7 @@
 		fRef = 59C0BEC1135EC52900378314 /* index.html */;
 		name = "index.html: 106";
 		rLen = 0;
-		rLoc = 5416;
+		rLoc = 5521;
 		rType = 0;
 		vrLen = 1884;
 		vrLoc = 3204;
@@ -639,7 +656,7 @@
 		fRef = 59C0BEC1135EC52900378314 /* index.html */;
 		name = "index.html: 205";
 		rLen = 0;
-		rLoc = 12961;
+		rLoc = 13065;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 11671;
@@ -839,7 +856,7 @@
 		fRef = 59C0BEC1135EC52900378314 /* index.html */;
 		name = "index.html: 137";
 		rLen = 0;
-		rLoc = 5301;
+		rLoc = 5406;
 		rType = 0;
 		vrLen = 1804;
 		vrLoc = 4692;
@@ -859,7 +876,7 @@
 		fRef = 256AC3D80F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.h */;
 		name = "iPhoneTrackingAppDelegate.h: 18";
 		rLen = 0;
-		rLoc = 1327;
+		rLoc = 1379;
 		rType = 0;
 		vrLen = 855;
 		vrLoc = 0;
@@ -869,7 +886,7 @@
 		fRef = 59C0BEC1135EC52900378314 /* index.html */;
 		name = "index.html: 142";
 		rLen = 0;
-		rLoc = 5395;
+		rLoc = 5500;
 		rType = 0;
 		vrLen = 1734;
 		vrLoc = 4692;
@@ -879,10 +896,180 @@
 		fRef = 59C0BEC1135EC52900378314 /* index.html */;
 		name = "index.html: 138";
 		rLen = 0;
-		rLoc = 5395;
+		rLoc = 5500;
 		rType = 0;
 		vrLen = 1804;
 		vrLoc = 4692;
+	};
+	59C0BF201363900700378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59F0A3071359237800098746 /* index.html */;
+		name = "index.html: 15";
+		rLen = 0;
+		rLoc = 571;
+		rType = 0;
+		vrLen = 1231;
+		vrLoc = 0;
+	};
+	59C0BF211363900700378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59F0A48E1359662F00098746 /* parsembdb.h */;
+		name = "parsembdb.h: 26";
+		rLen = 0;
+		rLoc = 944;
+		rType = 0;
+		vrLen = 1067;
+		vrLoc = 0;
+	};
+	59C0BF221363900700378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59F0A48F1359662F00098746 /* parsembdb.m */;
+		name = "parsembdb.m: 26";
+		rLen = 0;
+		rLoc = 944;
+		rType = 0;
+		vrLen = 1327;
+		vrLoc = 0;
+	};
+	59C0BF231363900700378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 28";
+		rLen = 0;
+		rLoc = 1002;
+		rType = 0;
+		vrLen = 1124;
+		vrLoc = 0;
+	};
+	59C0BF241363900700378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59F0A33013593AA200098746 /* FMResultSet.h */;
+		name = "FMResultSet.h: 26";
+		rLen = 0;
+		rLoc = 615;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 0;
+	};
+	59C0BF251363900700378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59F0A32D13593AA200098746 /* FMDatabase.m */;
+		name = "FMDatabase.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 0;
+	};
+	59C0BF261363900700378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.m */;
+		name = "iPhoneTrackingAppDelegate.m: 27";
+		rLen = 0;
+		rLoc = 976;
+		rType = 0;
+		vrLen = 1226;
+		vrLoc = 0;
+	};
+	59C0BF271363900700378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.m */;
+		name = "iPhoneTrackingAppDelegate.m: 15";
+		rLen = 0;
+		rLoc = 470;
+		rType = 0;
+		vrLen = 1320;
+		vrLoc = 4923;
+	};
+	59C0BF281363900700378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.h */;
+		name = "iPhoneTrackingAppDelegate.h: 20";
+		rLen = 0;
+		rLoc = 689;
+		rType = 0;
+		vrLen = 1318;
+		vrLoc = 0;
+	};
+	59C0BF291363900700378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59C0BEC1135EC52900378314 /* index.html */;
+		name = "index.html: 132";
+		rLen = 0;
+		rLoc = 5000;
+		rType = 0;
+		vrLen = 1804;
+		vrLoc = 4692;
+	};
+	59C0BF2A1363900700378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59C0BEC1135EC52900378314 /* index.html */;
+		name = "index.html: 223";
+		rLen = 0;
+		rLoc = 14137;
+		rType = 0;
+		vrLen = 1417;
+		vrLoc = 12752;
+	};
+	59C0BF2B1363A9A500378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.m */;
+		name = "iPhoneTrackingAppDelegate.m: 15";
+		rLen = 0;
+		rLoc = 470;
+		rType = 0;
+		vrLen = 1320;
+		vrLoc = 4923;
+	};
+	59C0BF2C1363A9A500378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59C0BEC1135EC52900378314 /* index.html */;
+		name = "index.html: 147";
+		rLen = 0;
+		rLoc = 6094;
+		rType = 0;
+		vrLen = 1909;
+		vrLoc = 5786;
+	};
+	59C0BF2D1363AB0D00378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.m */;
+		name = "iPhoneTrackingAppDelegate.m: 15";
+		rLen = 0;
+		rLoc = 470;
+		rType = 0;
+		vrLen = 1226;
+		vrLoc = 0;
+	};
+	59C0BF2E1363AB0D00378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 59C0BEC1135EC52900378314 /* index.html */;
+		name = "index.html: 147";
+		rLen = 0;
+		rLoc = 6094;
+		rType = 0;
+		vrLen = 1909;
+		vrLoc = 5786;
+	};
+	59C0BF2F1363AB0D00378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.h */;
+		name = "iPhoneTrackingAppDelegate.h: 20";
+		rLen = 0;
+		rLoc = 689;
+		rType = 0;
+		vrLen = 1318;
+		vrLoc = 0;
+	};
+	59C0BF301363AB0D00378314 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.h */;
+		name = "iPhoneTrackingAppDelegate.h: 33";
+		rLen = 0;
+		rLoc = 1141;
+		rType = 0;
+		vrLen = 1292;
+		vrLoc = 187;
 	};
 	59F0A2AE13591A8200098746 /* iPhoneTracker */ = {
 		isa = PBXExecutable;
@@ -946,9 +1133,9 @@
 	};
 	59F0A32D13593AA200098746 /* FMDatabase.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1240, 12660}}";
+			sepNavIntBoundsRect = "{{0, 0}, {623, 12660}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 830}";
+			sepNavVisRange = "{0, 730}";
 		};
 	};
 	59F0A33013593AA200098746 /* FMResultSet.h */ = {
@@ -1028,7 +1215,7 @@
 		fRef = 256AC3D80F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.h */;
 		name = "iPhoneTrackingAppDelegate.h: 12";
 		rLen = 0;
-		rLoc = 1346;
+		rLoc = 1398;
 		rType = 0;
 		vrLen = 456;
 		vrLoc = 0;
@@ -1122,7 +1309,7 @@
 		fRef = 256AC3D80F4B6AC300CF3369 /* iPhoneTrackingAppDelegate.h */;
 		name = "iPhoneTrackingAppDelegate.h: 17";
 		rLen = 0;
-		rLoc = 1413;
+		rLoc = 1465;
 		rType = 0;
 		vrLen = 592;
 		vrLoc = 0;

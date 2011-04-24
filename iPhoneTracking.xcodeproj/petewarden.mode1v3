@@ -280,8 +280,9 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>37</integer>
-									<integer>36</integer>
+									<integer>10</integer>
+									<integer>9</integer>
+									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -323,7 +324,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>index.html</string>
+										<string>iPhoneTrackingAppDelegate.m</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -331,21 +332,24 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>index.html</string>
+												<string>iPhoneTrackingAppDelegate.m</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>59C0BF19136346A700378314</string>
+												<string>59C0BF2D1363AB0D00378314</string>
 												<key>history</key>
 												<array>
-													<string>59F0A34E13593DD300098746</string>
 													<string>59F0A37213593F3100098746</string>
 													<string>59F0A4911359770A00098746</string>
 													<string>59C0BDBB135BF6C600378314</string>
-													<string>59C0BDBC135BF6C600378314</string>
-													<string>59C0BEBA135EC52900378314</string>
 													<string>59C0BEDA135F33A500378314</string>
-													<string>59C0BEDF135F5D3100378314</string>
+													<string>59C0BF201363900700378314</string>
+													<string>59C0BF211363900700378314</string>
+													<string>59C0BF221363900700378314</string>
+													<string>59C0BF231363900700378314</string>
+													<string>59C0BF241363900700378314</string>
+													<string>59C0BF251363900700378314</string>
+													<string>59C0BF261363900700378314</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -374,7 +378,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>index.html</string>
+										<string>iPhoneTrackingAppDelegate.h</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -382,11 +386,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>index.html</string>
+												<string>iPhoneTrackingAppDelegate.h</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>59C0BF1C136346A700378314</string>
+												<string>59C0BF301363AB0D00378314</string>
 												<key>history</key>
 												<array>
 													<string>59F0A34C13593DD300098746</string>
@@ -396,8 +400,8 @@
 													<string>59F0A5C9135A35CE00098746</string>
 													<string>59F0A5F7135A4B3700098746</string>
 													<string>59C0BEBD135EC52900378314</string>
-													<string>59C0BF1A136346A700378314</string>
-													<string>59C0BF1B136346A700378314</string>
+													<string>59C0BF2E1363AB0D00378314</string>
+													<string>59C0BF2F1363AB0D00378314</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -628,8 +632,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -652,6 +654,8 @@
 							<string>466pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
