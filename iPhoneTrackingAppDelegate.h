@@ -34,12 +34,14 @@
 #if (MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_5)
 @interface iPhoneTrackingAppDelegate : NSObject
 #else
-@interface iPhoneTrackingAppDelegate : NSObject <NSApplicationDelegate>
+@interface iPhoneTrackingAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDataSource, NSTableViewDelegate>
 #endif
 {
   NSWindow *window;
   WebView *webView;
+  NSTableView *tableView;
   WebScriptObject* scriptObject;
+  NSMutableArray *devicesArray;
 }
 
 - (void)loadLocationDB;
@@ -48,6 +50,8 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet WebView *webView;
+@property (assign) IBOutlet NSTableView *tableView;
+
 - (IBAction)openAboutPanel:(id)sender;
 
 @end
