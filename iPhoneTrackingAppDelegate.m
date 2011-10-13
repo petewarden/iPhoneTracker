@@ -136,6 +136,8 @@
       if (dbFileName==nil) {
         NSLog(@"No consolidated.db file found in '%@'", newestFolder);
         continue;
+      } else {
+          NSLog(@"File found at '%@'", dbFileName);
       }
 
       NSString* dbFilePath = [newestFolder stringByAppendingPathComponent:dbFileName];
