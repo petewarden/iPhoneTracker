@@ -22,6 +22,7 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		DDC004FC135F441800F73AAB /* template.kml in Resources */ = {isa = PBXBuildFile; fileRef = DDC004FB135F441800F73AAB /* template.kml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		59F0A63C135A4FDC00098746 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = English; path = English.lproj/Credits.html; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* iPhoneTracking-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iPhoneTracking-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* iPhoneTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDC004FB135F441800F73AAB /* template.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = template.kml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				59F0A3071359237800098746 /* index.html */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				DDC004FB135F441800F73AAB /* template.kml */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				59F0A63D135A4FDC00098746 /* Credits.html in Resources */,
 				59C0BD6D135A545200378314 /* readme.asciidoc in Resources */,
 				00F0B7F4135A97350017896A /* Icon.png in Resources */,
+				DDC004FC135F441800F73AAB /* template.kml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
