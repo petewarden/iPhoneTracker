@@ -108,6 +108,8 @@
     <br>
     <a href="#1"><span>How does the application work?</span></a> 
     <br>
+	<a href="#1.5"><span>Are there any system requirements?</span></a> 
+    <br>
     <a href="#2"><span>How can I examine the data without running the application?</span></a> 
     <br>
     <a href="#3"><span>Does this application share the information with anyone?</span></a> 
@@ -144,6 +146,10 @@
  
     <p>If you run it on an OS X machine that you’ve been syncing with an iPhone or an iPad with cellular plan, it will scan through the backup files that are automatically made, looking for the hidden file containing your location. If it finds this file, it will then display the location history on the map.</p> 
   
+	<a name="1.5"></a><h3>Are there any system requirements?</h3>
+	
+	<p>Yes. This app will only run on 64-bit Intel Mac OS X 10.6+ machines. Thank you for your understanding.</p>
+
     <a name="2"></a><h3>How can I examine the data without running the application?</h3>
     
     <p>It will be stored in a folder inside /Users/&lt;your user name&gt;/Library/Application Support/MobileSync/Backup/. Each time you sync up an iOS device (iPad, iPhone, etc) files will be copied into a new folder here. The names of the folders and the files within them are mostly random strings, but there are some index files like Info.plist and Manifest.mbdb. Find the folder that has the most recent backup by looking at the modified dates of the files. Then, load Info.plist into a text editor to see what device it's for. You should see a 'Device Name' value in the XML, make sure that it matches your iPhone.</p>
