@@ -33,6 +33,13 @@
 
 @synthesize window;
 @synthesize webView;
+@synthesize tableView;
+
+- (id) init
+{
+  devicesArray = [[NSMutableArray alloc] init];
+  return self;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 }
@@ -53,7 +60,11 @@
  	[[webView mainFrame] loadHTMLString:htmlString baseURL:NULL];
   [webView setUIDelegate:self];
   [webView setFrameLoadDelegate:self]; 
-  [webView setResourceLoadDelegate:self]; 
+  [webView setResourceLoadDelegate:self];
+
+  // Set Datasource and Delegate of the TableView
+  [tableView setDataSource: self];
+  [tableView setDelegate: self];
 }
 
 - (void)debugLog:(NSString *) message
@@ -92,7 +103,8 @@
     NSDate* modificationDate = [childInfo objectForKey:@"NSFileModificationDate"];    
 
     NSDictionary* fileInfo = [NSDictionary dictionaryWithObjectsAndKeys: 
-      childPath, @"fileName", 
+      childPath, @"fileName",
+      childName, @"childName",
       modificationDate, @"modificationDate", 
       plistFile, @"plistFile", 
       nil];
@@ -102,7 +114,7 @@
   
   NSSortDescriptor* sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"modificationDate" ascending:NO] autorelease];
   [fileInfoList sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-
+  
   BOOL loadWorked = NO;
   for (NSDictionary* fileInfo in fileInfoList) {
     @try {
@@ -140,16 +152,35 @@
 
       NSString* dbFilePath = [newestFolder stringByAppendingPathComponent:dbFileName];
 
+      // Add Device to Tableview
+      NSDate * modificationDate = (NSDate *) [fileInfo objectForKey: @"modificationDate"];
+      NSDateFormatter * dateFormater = [[NSDateFormatter alloc] init];
+      [dateFormater setDateFormat:@"yyyy-MM-dd HH:mm"];
+      NSString * modificationDateString = [dateFormater stringFromDate: modificationDate];
+      
+      NSDictionary * currentDeviceDictornary =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+             modificationDateString, @"date"
+            ,deviceName, @"device"
+            ,dbFilePath, @"filename"
+            ,nil
+        ];
+      
+      [devicesArray addObject: currentDeviceDictornary];
+      [currentDeviceDictornary retain];
+      [modificationDate retain];
+      [modificationDateString retain];
+      [dateFormater retain];
+      
       loadWorked = [self tryToLoadLocationDB: dbFilePath forDevice:deviceName];
-      if (loadWorked) {
-        break;
-      }
     }
     @catch (NSException *exception) {
       NSLog(@"Exception: %@", [exception reason]);
     }
   }
 
+  [tableView reloadData];
+  
   if (!loadWorked) {
     [self displayErrorAndQuit: [NSString stringWithFormat: @"Couldn't load consolidated.db file from '%@'", backupPath]];  
   }
@@ -268,4 +299,27 @@
     [[NSApplication sharedApplication] orderFrontStandardAboutPanelWithOptions:options];
     
 }
+
+#pragma Datasource for the NSTableView
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
+{
+  return [devicesArray count];
+}
+
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
+{
+  return [(NSDictionary *) [devicesArray objectAtIndex: rowIndex] objectForKey: [aTableColumn identifier]];
+}
+
+#pragma Delegate for the NSTableView
+
+- (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
+{
+  NSString * fileName = [(NSDictionary *) [devicesArray objectAtIndex: rowIndex] objectForKey: @"filename"];
+  NSString * deviceName = [(NSDictionary *) [devicesArray objectAtIndex: rowIndex] objectForKey: @"device"];
+  [self tryToLoadLocationDB: fileName forDevice: deviceName];
+  return YES;
+}
+
 @end

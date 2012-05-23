@@ -286,7 +286,7 @@
 				INFOPLIST_FILE = "iPhoneTracking-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = iPhoneTracker;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -301,7 +301,7 @@
 				INFOPLIST_FILE = "iPhoneTracking-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = iPhoneTracker;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
