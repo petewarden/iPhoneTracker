@@ -169,7 +169,7 @@
   const float precision = 100;
   NSMutableDictionary* buckets = [NSMutableDictionary dictionary];
 
-  NSString* queries[] = {@"SELECT * FROM CellLocation;", @"SELECT * FROM WifiLocation;"};
+  NSString* queries[] = {@"SELECT * FROM CDMACellLocation;",@"SELECT * FROM CellLocation;", @"SELECT * FROM WifiLocation;"};
   
   // Temporarily disabled WiFi location pulling, since it's so dodgy. Change to 
   for (int pass=0; pass<1; /*pass<2;*/ pass+=1) {
