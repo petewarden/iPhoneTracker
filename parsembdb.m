@@ -180,7 +180,7 @@ NSDictionary* process_mbdx_file(NSString* filename) {
 
   char* hexArray = "0123456789abcdef";
   
-  NSNumber* filecount = getint(data, &offset, 4); // 4-byte count of records 
+  /*NSNumber* filecount = */getint(data, &offset, 4); // 4-byte count of records 
   while (offset < dataLength) {
     // 26 byte record, made up of ...
     char* fileID_string = malloc(41);
@@ -198,7 +198,7 @@ NSDictionary* process_mbdx_file(NSString* filename) {
     offset = offset + 20;
     NSNumber* mbdb_offset = getint(data, &offset, 4); // 4-byte offset field
     mbdb_offset = [NSNumber numberWithInteger: ([mbdb_offset integerValue] + 6)]; // Add 6 to get past prolog
-    NSNumber* mode = getint(data, &offset, 2); // 2-byte mode field
+    /*NSNumber* mode = */getint(data, &offset, 2); // 2-byte mode field
     [mbdx setObject:fileID_nsString forKey: mbdb_offset];
   }
   

@@ -78,7 +78,7 @@
   NSString* backupPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Application Support/MobileSync/Backup/"];
 
   NSFileManager *fm = [NSFileManager defaultManager];
-  NSArray* backupContents = [[NSFileManager defaultManager] directoryContentsAtPath:backupPath];
+  NSArray* backupContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:backupPath error:nil];
 
   NSMutableArray* fileInfoList = [NSMutableArray array];
   for (NSString *childName in backupContents) {
@@ -185,16 +185,15 @@
 
       const float latitude = [latitude_number floatValue];
       const float longitude = [longitude_number floatValue];
-      const float timestamp = [timestamp_number floatValue];
-      
-      // The timestamps seem to be based off 2001-01-01 strangely, so convert to the 
-      // standard Unix form using this offset
-      const float iOSToUnixOffset = (31*365.25*24*60*60);
-      const float unixTimestamp = (timestamp+iOSToUnixOffset);
       
       if ((latitude==0.0)&&(longitude==0.0)) {
         continue;
       }
+        
+      // The timestamps are based off 2001-01-01 because that's "NSDate" reference time,
+      // so convert to the standard Unix form using the offset from "NSTimeInvervalSince1970"
+      //const float unixTimestamp = (timestamp+NSTimeIntervalSince1970);
+      const float unixTimestamp = [[NSDate dateWithTimeIntervalSinceReferenceDate:[timestamp_number floatValue]] timeIntervalSince1970];
       
       const float weekInSeconds = (7*24*60*60);
       const float timeBucket = (floor(unixTimestamp/weekInSeconds)*weekInSeconds);
